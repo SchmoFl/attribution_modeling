@@ -21,7 +21,7 @@ class: center, middle, inverse, title-slide
 # Attributionsmodelle
 ## ML-basierte Bestimmung von Touchpoint-Einflüssen
 ### Florian Schmoll
-### 21.08.2021 (updated: 26.08.2021)
+### 21.08.2021 (updated: 27.08.2021)
 
 ---
 
@@ -166,9 +166,9 @@ auf die jeweilige Vorhersage für eine spezifische Kaufvorhersage
 
 ## ML Model
 
-Für die Vorhersage der Kaufentscheidung benutzen wir ein neuronales Netz, z.B. RNN mit LSTM-Layer
+Für die Vorhersage der Kaufentscheidung benutzen wir ein neuronales Netz, z.B. Neuronales Netz mit LSTM-Layer
 
-![](attribution_modelling_files/figure-html/lstm_plot-1.png)&lt;!-- --&gt;
+&lt;img src="attribution_modelling_files/figure-html/lstm_plot-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -207,15 +207,6 @@ Verwendung der SHAP-Methode (**SH**apley **A**dditive ex**P**lanations)
 
 --
 
-Kombination eines lokalen Erklärungsmodells und Shapley Values
-
---
-
-Lokales Erklärungsmodell wird eingesetzt, um ein komplexes Modell in einem bestimmten
-Bereich anzunähern und es dort erklärbar zu machen
-
---
-
 Shapley-Werte haben ihren Ursprung in der Spieltheorie
 
 - Wieviel trägt eine Spieler:in in einem kooperativen Spiel zum Gewinn bei?
@@ -228,7 +219,18 @@ Um wieviel erhöht sich die Wahrscheinlichkeit, wenn der Touchpoint beteiligt is
 
 ---
 
-&lt;img src="shap_plot.png" width="1115" /&gt;
+## Alternative: LIME
+
+Für viele Features (hier: lange Pfade) kann die Berechnung mittels SHAP sehr zeitintensiv sein
+
+Einsatz eines lokalen Erklärungsmodells (LIME = **L**ocal **I**nterpretable **M**odel-agnostic **E**xplanations), um ein komplexes
+Modell in einem bestimmten Bereich anzunähern und es dort erklärbar zu machen
+
+Das Modell ist additiv und "lebt" auf einem "kleineren" Feature-Space 
+
+---
+
+&lt;img src="shap_plot.png" width="1115" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -264,7 +266,7 @@ class: inverse, center, middle
 
 ## Vorteile
 
-- Neuronales Netzt kann komplexe Zusammenhänge lernen
+- Neuronales Netz kann komplexe Zusammenhänge lernen
 - Reihenfolge &amp; Interaktionen werden berücksichtigt
 - Attribution auf Pfadebene (keine globale Attribution)
 
@@ -275,7 +277,7 @@ class: inverse, center, middle
 - Benötigt viele Daten
 - Abhängig von Güte des Modells
 - Klassifizierungsmodell ist schwer interpretierbar
-- Rechenintensiv für viele Pfade
+- Rechenintensiv für lange bzw. viele Pfade
 
 ---
 

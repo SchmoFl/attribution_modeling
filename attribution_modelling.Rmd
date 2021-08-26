@@ -14,6 +14,12 @@ output:
 
 ```{r xaringanExtra, echo=FALSE}
 xaringanExtra::use_xaringan_extra(c("tile_view", "scribble"))
+
+knitr::opts_chunk$set(
+  fig.align = "center",
+  dev.args = list(type = "cairo")
+)
+
 ```
 
 # Agenda
@@ -157,7 +163,7 @@ auf die jeweilige Vorhersage für eine spezifische Kaufvorhersage
 
 ## ML Model
 
-Für die Vorhersage der Kaufentscheidung benutzen wir ein neuronales Netz, z.B. RNN mit LSTM-Layer
+Für die Vorhersage der Kaufentscheidung benutzen wir ein neuronales Netz, z.B. Neuronales Netz mit LSTM-Layer
 
 ```{r lstm_plot, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -230,15 +236,6 @@ Verwendung der SHAP-Methode (**SH**apley **A**dditive ex**P**lanations)
 
 --
 
-Kombination eines lokalen Erklärungsmodells und Shapley Values
-
---
-
-Lokales Erklärungsmodell wird eingesetzt, um ein komplexes Modell in einem bestimmten
-Bereich anzunähern und es dort erklärbar zu machen
-
---
-
 Shapley-Werte haben ihren Ursprung in der Spieltheorie
 
 - Wieviel trägt eine Spieler:in in einem kooperativen Spiel zum Gewinn bei?
@@ -248,6 +245,17 @@ Shapley-Werte haben ihren Ursprung in der Spieltheorie
 Ansatz: Wie wahrscheinlich ist der Kauf, wenn ein spezifischer Touchpoint nicht im Pfad
 enthalten wäre? 
 Um wieviel erhöht sich die Wahrscheinlichkeit, wenn der Touchpoint beteiligt ist?
+
+---
+
+## Alternative: LIME
+
+Für viele Features (hier: lange Pfade) kann die Berechnung mittels SHAP sehr zeitintensiv sein
+
+Einsatz eines lokalen Erklärungsmodells (LIME = **L**ocal **I**nterpretable **M**odel-agnostic **E**xplanations), um ein komplexes
+Modell in einem bestimmten Bereich anzunähern und es dort erklärbar zu machen
+
+Das Modell ist additiv und "lebt" auf einem "kleineren" Feature-Space 
 
 ---
 
@@ -289,7 +297,7 @@ class: inverse, center, middle
 
 ## Vorteile
 
-- Neuronales Netzt kann komplexe Zusammenhänge lernen
+- Neuronales Netz kann komplexe Zusammenhänge lernen
 - Reihenfolge & Interaktionen werden berücksichtigt
 - Attribution auf Pfadebene (keine globale Attribution)
 
@@ -300,7 +308,7 @@ class: inverse, center, middle
 - Benötigt viele Daten
 - Abhängig von Güte des Modells
 - Klassifizierungsmodell ist schwer interpretierbar
-- Rechenintensiv für viele Pfade
+- Rechenintensiv für lange bzw. viele Pfade
 
 ---
 
