@@ -21,7 +21,7 @@ class: center, middle, inverse, title-slide
 # Attributionsmodelle
 ## ML-basierte Bestimmung von Touchpoint-Einflüssen
 ### Florian Schmoll
-### 21.08.2021 (updated: 23.08.2021)
+### 21.08.2021 (updated: 26.08.2021)
 
 ---
 
@@ -37,8 +37,6 @@ class: center, middle, inverse, title-slide
 - Vor- und Nachteile
 
 - Validierung
-
-- Alternativen
 
 ---
 
@@ -59,7 +57,7 @@ class: inverse, center, middle
 |       1|2021-08-22 15:41:32 |Google        |
 |       1|2021-08-24 09:10:47 |Facebook      |
 |       2|2021-08-21 13:22:08 |Newsletter    |
-|       2|2021-08-22 10:33:59 |Instagrm      |
+|       2|2021-08-22 10:33:59 |Instagram     |
 |       2|2021-08-22 10:45:50 |Direkzugriff  |
 |       3|2021-08-24 19:24:37 |Instagram     |
 |       3|2021-08-29 07:36:24 |Newsletter    |
@@ -108,7 +106,7 @@ class: inverse, center, middle
 
 ---
 
-Auswahl des Modellansatzes basierend auf den Anforderungen, Datenbasis, Erwartungen, etc.
+Auswahl des Modellansatzes basierend auf Anforderungen, Datenbasis, Erwartungen, etc.
 
 --
 
@@ -151,12 +149,12 @@ Anschließende Implementierung eines komplexeren Ansatzes
 
 ## Explainable AI
 
-Kombination eines komplexen Machine Learning Modell und eines Erklärungsmodells
+Kombination eines komplexen Machine Learning Modells und eines Erklärungsmodells
 
 --
 
 Das Machine Learning Modell sagt die Kaufentscheidung auf Basis der Touchpoints und ggf. 
-anderer Daten (z.B. Alter/Geschlecht des Nutzers) vorher
+anderer Daten (z.B. Alter/Geschlecht der Nutzer:in) vorher
 
 --
 
@@ -205,7 +203,7 @@ Der Output ist eine Kaufentscheidung, `\(y \in \{0, 1\}\)`
 
 ## Erklärungsmodell
 
-Verwendung der SHAP-Methode (**Sh**apley **A**dditive ex**P**lanations)
+Verwendung der SHAP-Methode (**SH**apley **A**dditive ex**P**lanations)
 
 --
 
@@ -214,17 +212,15 @@ Kombination eines lokalen Erklärungsmodells und Shapley Values
 --
 
 Lokales Erklärungsmodell wird eingesetzt, um ein komplexes Modell in einem bestimmten
-Bereich anzunähern, um es dort erklärbar zu machen
+Bereich anzunähern und es dort erklärbar zu machen
 
 --
 
 Shapley-Werte haben ihren Ursprung in der Spieltheorie
 
-- Wieviel trägt ein Spieler in einem kooperativen Spiel zum Gewinn bei?
-- Spieler sind die einzelnen Touchpoints eines jeweiligen Pfads
-- Gewinn ist der Kauf bzw. Nicht-Kauf eines Kunden
-
---
+- Wieviel trägt eine Spieler:in in einem kooperativen Spiel zum Gewinn bei?
+- Spieler:innen sind die einzelnen Touchpoints eines jeweiligen Pfads
+- Gewinn ist der Kauf bzw. Nicht-Kauf einer Kund:in
 
 Ansatz: Wie wahrscheinlich ist der Kauf, wenn ein spezifischer Touchpoint nicht im Pfad
 enthalten wäre? 
@@ -272,6 +268,8 @@ class: inverse, center, middle
 - Reihenfolge &amp; Interaktionen werden berücksichtigt
 - Attribution auf Pfadebene (keine globale Attribution)
 
+
+
 ## Nachteile
 
 - Benötigt viele Daten
@@ -294,12 +292,16 @@ Validierung des Klassifizierungsmodells auf Testdaten
 
 --
 
+
+
 Maßnahmen basierend auf den Erkenntnissen
 
 - Testen auf signifikante Effekte durch Anwendung der Maßnahmen
 - Bestimmung des Lifts nach Anwendung der Maßnahmen
 
 --
+
+
 
 Nutzerumfragen
 
